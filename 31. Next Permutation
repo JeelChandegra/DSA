@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    vector<int> v = {5, 4, -1, 7, 8};
+    int n = v.size();
+
+    int final_total = INT_MIN; 
+    int total = 0;
+
+    for (int i = 0; i < n; i++) {
+        total = 0;  // reset for each new starting point
+
+        for (int j = i; j < n; j++) {
+            total += v[j];            // extend subarray
+            final_total = max(final_total, total); 
+        }
+    }
+
+    cout << final_total;
+}
